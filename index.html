@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eğitim Bilimleri Ders Kaynakları</title>
+<title>Eğitim Bilimleri Ders Kaynak Portalı</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -22,7 +22,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Inter', sans-serif;
+    font-family:'Inter',sans-serif;
 }
 
 body{
@@ -38,52 +38,65 @@ header{
 }
 
 header h1{
-    font-weight:700;
     font-size:28px;
-    margin-bottom:10px;
+    font-weight:700;
 }
 
 header p{
+    margin-top:8px;
     opacity:.9;
-    font-size:15px;
+    font-size:14px;
 }
 
 .container{
-    max-width:1200px;
+    max-width:1000px;
     margin:40px auto;
     padding:0 20px;
 }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:30px;
-}
-
-.card{
+.accordion-item{
     background:var(--card);
-    border-radius:14px;
-    padding:25px;
-    box-shadow:0 6px 18px rgba(0,0,0,.08);
-    transition:.3s ease;
+    margin-bottom:15px;
+    border-radius:12px;
+    box-shadow:0 6px 16px rgba(0,0,0,.08);
+    overflow:hidden;
+    transition:.3s;
 }
 
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 12px 28px rgba(0,0,0,.12);
+.accordion-header{
+    padding:18px 20px;
+    cursor:pointer;
+    font-weight:600;
+    font-size:17px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:white;
 }
 
-.card h2{
+.accordion-header:hover{
+    background:#f9f9f9;
+}
+
+.accordion-header span{
     font-size:20px;
-    margin-bottom:20px;
-    color:var(--primary);
-    border-left:5px solid var(--accent);
-    padding-left:10px;
+    transition:.3s;
+}
+
+.accordion-content{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .4s ease;
+    padding:0 20px;
+}
+
+.accordion-content-inner{
+    padding:20px 0;
 }
 
 .week{
-    margin-bottom:18px;
-    padding-bottom:15px;
+    margin-bottom:15px;
+    padding-bottom:12px;
     border-bottom:1px solid #eee;
 }
 
@@ -93,7 +106,6 @@ header p{
 
 .week-title{
     font-weight:600;
-    font-size:15px;
     margin-bottom:8px;
 }
 
@@ -106,7 +118,7 @@ header p{
 .btn{
     text-decoration:none;
     font-size:13px;
-    padding:8px 14px;
+    padding:7px 14px;
     border-radius:8px;
     transition:.3s;
     font-weight:500;
@@ -132,7 +144,7 @@ header p{
 }
 
 footer{
-    margin-top:50px;
+    margin-top:40px;
     padding:25px;
     text-align:center;
     background:white;
@@ -145,72 +157,135 @@ footer{
 
 <body>
 
-<header>
-    <h1>Eğitim Bilimleri Ders Kaynakları</h1>
-    <p>Sunumlar ve haftalık ders videoları – Öğrenci kaynak sayfası</p>
+<header style="background:white; padding:30px 20px; box-shadow:0 4px 10px rgba(0,0,0,.1);">
+    <div style="max-width:260px; margin:auto;">
+        <img src="https://hitit.edu.tr/images/HititLogoYeni.svg" alt="Hitit Üniversitesi" style="width:100%; height:auto; display:block;">
+    </div>
+    <h1 style="margin-top:15px; color:var(--primary); font-size:26px; font-weight:700; text-align:center;">
+        Eğitim Kaynakları
+    </h1>
+    <p style="text-align:center; font-size:14px; color:var(--muted); margin-top:4px;">
+        Uzaktan Eğitim Uygulama ve Araştırma Merkezi
+    </p>
 </header>
 
 <div class="container">
-    <div class="grid">
 
-        <!-- Türk Eğitim Tarihi -->
-        <div class="card">
-            <h2>Türk Eğitim Tarihi Kaynakları</h2>
+    <!-- Türk Eğitim Tarihi -->
+    <div class="accordion-item">
+        <div class="accordion-header">
+            Türk Eğitim Tarihi Kaynakları
+            <span>+</span>
+        </div>
+        <div class="accordion-content">
+            <div class="accordion-content-inner">
 
-            <div class="week">
-                <div class="week-title">1. Hafta</div>
-                <div class="links">
-                    <a class="btn btn-primary" href="https://www.canva.com/design/DAHBkx41s2w/6dSAWnQzBEGoyIAgcMu6aQ/view" target="_blank">Sunum</a>
-                    <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDEdkHn7s3ZRKH9k_MO3dsEAVPGahKRmb81viruhXgwn10?e=hCabbJ" target="_blank">Video</a>
+                <div class="week">
+                    <div class="week-title">1. Hafta</div>
+                    <div class="links">
+                        <a class="btn btn-primary" href="https://www.canva.com/design/DAHBkx41s2w/6dSAWnQzBEGoyIAgcMu6aQ/view" target="_blank">Sunum</a>
+                        <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDEdkHn7s3ZRKH9k_MO3dsEAVPGahKRmb81viruhXgwn10?e=hCabbJ" target="_blank">Video</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="week">
-                <div class="week-title">2. Hafta</div>
-                <div class="links">
-                    <a class="btn btn-primary" href="https://www.canva.com/design/DAHBv2ivxAA/2pDy9WrGZFJ-yQfFdx0oNQ/view" target="_blank">Sunum</a>
-                    <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDlwU0XzI9NSoKsdMicGV6cAU725ugOtK3rzXkXPAN-djo?e=dtUzP7" target="_blank">Video</a>
+                <div class="week">
+                    <div class="week-title">2. Hafta</div>
+                    <div class="links">
+                        <a class="btn btn-primary" href="https://www.canva.com/design/DAHBv2ivxAA/2pDy9WrGZFJ-yQfFdx0oNQ/view" target="_blank">Sunum</a>
+                        <a class="btn btn-outline" href="" target="_blank">Video</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="week">
-                <div class="week-title">3. Hafta</div>
-                <div class="links">
-                    <a class="btn btn-primary" href="https://www.canva.com/design/DAHCVFFy_2k/O5C0XA9qeAkx1vNX3q_Saw/view" target="_blank">Sunum</a>
+                <div class="week">
+                    <div class="week-title">3. Hafta</div>
+                    <div class="links">
+                        <a class="btn btn-primary" href="https://www.canva.com/design/DAHCVFFy_2k/O5C0XA9qeAkx1vNX3q_Saw/view" target="_blank">Sunum</a>
+                    </div>
                 </div>
+
             </div>
         </div>
-
-        <!-- Okullarda Rehberlik -->
-        <div class="card">
-            <h2>Okullarda Rehberlik</h2>
-
-            <div class="week">
-                <div class="week-title">1. Hafta</div>
-                <div class="links">
-                    <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDe_Bvv1IIoQqha97QYrd6kASVU9rWk_Lf_UJZt3kC_OJg?e=R0KvHb" target="_blank">Video</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Eğitim Psikolojisi -->
-        <div class="card">
-            <h2>Eğitim Psikolojisi</h2>
-
-            <div class="week">
-                <div class="week-title">1. Hafta</div>
-                <div class="links">
-                    <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQA7TMCJVkfuRIPXcinBRzL_AfWU7TW8yf16ThxYpaqwLIQ?e=Mzm3wf" target="_blank">Video</a>
-                </div>
-            </div>
-        </div>
-
     </div>
+
+    <!-- Okullarda Rehberlik -->
+    <div class="accordion-item">
+        <div class="accordion-header">
+            Okullarda Rehberlik
+            <span>+</span>
+        </div>
+        <div class="accordion-content">
+            <div class="accordion-content-inner">
+                <div class="week">
+                    <div class="week-title">1. Hafta</div>
+                    <div class="links">
+                        <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDe_Bvv1IIoQqha97QYrd6kASVU9rWk_Lf_UJZt3kC_OJg?e=R0KvHb" target="_blank">Video</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Eğitim Psikolojisi -->
+    <div class="accordion-item">
+        <div class="accordion-header">
+            Eğitim Psikolojisi
+            <span>+</span>
+        </div>
+        <div class="accordion-content">
+            <div class="accordion-content-inner">
+                <div class="week">
+                    <div class="week-title">1. Hafta</div>
+                    <div class="links">
+                        <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQA7TMCJVkfuRIPXcinBRzL_AfWU7TW8yf16ThxYpaqwLIQ?e=Mzm3wf" target="_blank">Video</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Türk Eğitim Sistemi ve Okul Yönetimi -->
+    <div class="accordion-item">
+        <div class="accordion-header">
+            Türk Eğitim Sistemi ve Okul Yönetimi
+            <span>+</span>
+        </div>
+        <div class="accordion-content">
+            <div class="accordion-content-inner">
+                <div class="week">
+                    <div class="week-title">1. Hafta</div>
+                    <div class="links">
+                        <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQA7TMCJVkfuRIPXcinBRzL_AfWU7TW8yf16ThxYpaqwLIQ?e=Mzm3wf" target="_blank">Video</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
 </div>
 
 <footer>
-    © 2026 HUZEM • Tüm hakları saklıdır.
+© 2026 Eğitim Kaynak Portalı
 </footer>
+
+<script>
+document.querySelectorAll(".accordion-header").forEach(header=>{
+    header.addEventListener("click",function(){
+        const content=this.nextElementSibling;
+        const icon=this.querySelector("span");
+
+        if(content.style.maxHeight){
+            content.style.maxHeight=null;
+            icon.textContent="+";
+        }else{
+            document.querySelectorAll(".accordion-content").forEach(c=>c.style.maxHeight=null);
+            document.querySelectorAll(".accordion-header span").forEach(i=>i.textContent="+");
+
+            content.style.maxHeight=content.scrollHeight+"px";
+            icon.textContent="−";
+        }
+    });
+});
+</script>
 
 </body>
 </html>

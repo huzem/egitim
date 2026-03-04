@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eğitim Bilimleri Ders Kaynakları</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#7a0026;
+    --primary-dark:#5c001d;
+    --accent:#c9a24d;
+    --bg:#f4f6f9;
+    --card:#ffffff;
+    --text:#2b2b2b;
+    --muted:#6c757d;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+
+header{
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    color:white;
+    padding:40px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-weight:700;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+header p{
+    opacity:.9;
+    font-size:15px;
+}
+
+.container{
+    max-width:1200px;
+    margin:40px auto;
+    padding:0 20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:var(--card);
+    border-radius:14px;
+    padding:25px;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    transition:.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 28px rgba(0,0,0,.12);
+}
+
+.card h2{
+    font-size:20px;
+    margin-bottom:20px;
+    color:var(--primary);
+    border-left:5px solid var(--accent);
+    padding-left:10px;
+}
+
+.week{
+    margin-bottom:18px;
+    padding-bottom:15px;
+    border-bottom:1px solid #eee;
+}
+
+.week:last-child{
+    border:none;
+}
+
+.week-title{
+    font-weight:600;
+    font-size:15px;
+    margin-bottom:8px;
+}
+
+.links{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    text-decoration:none;
+    font-size:13px;
+    padding:8px 14px;
+    border-radius:8px;
+    transition:.3s;
+    font-weight:500;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+}
+
+.btn-outline{
+    border:1px solid var(--primary);
+    color:var(--primary);
+}
+
+.btn-outline:hover{
+    background:var(--primary);
+    color:white;
+}
+
+footer{
+    margin-top:50px;
+    padding:25px;
+    text-align:center;
+    background:white;
+    font-size:13px;
+    color:var(--muted);
+    border-top:1px solid #eee;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Eğitim Bilimleri Ders Kaynakları</h1>
+    <p>Sunumlar ve haftalık ders videoları – Öğrenci kaynak sayfası</p>
+</header>
+
+<div class="container">
+    <div class="grid">
+
+        <!-- Türk Eğitim Tarihi -->
+        <div class="card">
+            <h2>Türk Eğitim Tarihi Kaynakları</h2>
+
+            <div class="week">
+                <div class="week-title">1. Hafta</div>
+                <div class="links">
+                    <a class="btn btn-primary" href="https://www.canva.com/design/DAHBkx41s2w/6dSAWnQzBEGoyIAgcMu6aQ/view" target="_blank">Sunum</a>
+                    <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDEdkHn7s3ZRKH9k_MO3dsEAVPGahKRmb81viruhXgwn10?e=hCabbJ" target="_blank">Video</a>
+                </div>
+            </div>
+
+            <div class="week">
+                <div class="week-title">2. Hafta</div>
+                <div class="links">
+                    <a class="btn btn-primary" href="https://www.canva.com/design/DAHBv2ivxAA/2pDy9WrGZFJ-yQfFdx0oNQ/view" target="_blank">Sunum</a>
+                    <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDlwU0XzI9NSoKsdMicGV6cAU725ugOtK3rzXkXPAN-djo?e=dtUzP7" target="_blank">Video</a>
+                </div>
+            </div>
+
+            <div class="week">
+                <div class="week-title">3. Hafta</div>
+                <div class="links">
+                    <a class="btn btn-primary" href="https://www.canva.com/design/DAHCVFFy_2k/O5C0XA9qeAkx1vNX3q_Saw/view" target="_blank">Sunum</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Okullarda Rehberlik -->
+        <div class="card">
+            <h2>Okullarda Rehberlik</h2>
+
+            <div class="week">
+                <div class="week-title">1. Hafta</div>
+                <div class="links">
+                    <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDe_Bvv1IIoQqha97QYrd6kASVU9rWk_Lf_UJZt3kC_OJg?e=R0KvHb" target="_blank">Video</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Eğitim Psikolojisi -->
+        <div class="card">
+            <h2>Eğitim Psikolojisi</h2>
+
+            <div class="week">
+                <div class="week-title">1. Hafta</div>
+                <div class="links">
+                    <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQA7TMCJVkfuRIPXcinBRzL_AfWU7TW8yf16ThxYpaqwLIQ?e=Mzm3wf" target="_blank">Video</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    © 2026 HUZEM • Tüm hakları saklıdır.
+</footer>
+
+</body>
+</html>

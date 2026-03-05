@@ -1,289 +1,331 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUZEM | Eğitim Kaynakları Portalı</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #7a0026;
-            --primary-dark: #5c001d;
-            --primary-light: #941136;
-            --accent: #c9a24d;
-            --bg-body: #f1f5f9;
-            --bg-card: #ffffff;
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
-            --text-on-bordo: #ffffff;
-            --radius-md: 12px;
-            --radius-sm: 8px;
-            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HUZEM | Eğitim Kaynakları Portalı</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--bg-body); color: var(--text-dark); line-height: 1.6; }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        header {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            padding: 50px 20px 70px 20px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            position: relative;
-        }
+<style>
 
-        header img { 
-            width: 180px; 
-            margin-bottom: 20px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 12px;
-            display: inline-block;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        
-        header h1 { font-size: 30px; color: var(--text-on-bordo); font-weight: 800; text-transform: uppercase; letter-spacing: -0.5px; }
-        header p { color: rgba(255,255,255,0.8); font-size: 15px; margin-top: 5px; }
+:root{
+--primary:#7a0026;
+--primary-dark:#5c001d;
+--primary-light:#941136;
+--accent:#c9a24d;
+--bg-body:#f1f5f9;
+--bg-card:#ffffff;
+--text-dark:#1e293b;
+--text-muted:#64748b;
+--radius-md:12px;
+--radius-sm:8px;
+--shadow-md:0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);
+}
 
-        .container { max-width: 900px; margin: 0 auto; padding: 0 20px 60px 20px; min-height: 60vh; }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
 
-        .search-wrapper { position: relative; margin-top: -30px; margin-bottom: 35px; z-index: 10; }
-        .search-box {
-            width: 100%; padding: 18px 25px; border-radius: var(--radius-md); border: none;
-            font-size: 16px; background: var(--bg-card); box-shadow: var(--shadow-md); outline: none;
-        }
-        .search-box:focus { border-bottom: 3px solid var(--accent); }
+body{
+background:var(--bg-body);
+color:var(--text-dark);
+}
 
-        .course-card {
-            background: var(--bg-card); margin-bottom: 15px; border-radius: var(--radius-md);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); overflow: hidden; transition: var(--transition);
-        }
-        .course-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+header{
+background:linear-gradient(135deg,var(--primary-dark),var(--primary));
+padding:50px 20px 70px 20px;
+text-align:center;
+}
 
-        .course-header {
-            padding: 20px 25px; display: flex; justify-content: space-between; align-items: center;
-            cursor: pointer; user-select: none;
-        }
-        .course-header h3 { font-size: 17px; font-weight: 700; color: var(--text-dark); }
+header img{
+width:180px;
+background:#fff;
+padding:12px;
+border-radius:12px;
+margin-bottom:20px;
+}
 
-        .status-icon {
-            width: 30px; height: 30px; background: rgba(201, 162, 77, 0.1);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            color: var(--accent); font-weight: bold; transition: var(--transition);
-        }
-        .course-card.active .status-icon { background: var(--accent); color: white; transform: rotate(180deg); }
+header h1{
+color:white;
+font-size:30px;
+font-weight:800;
+}
 
-        .course-content { max-height: 0; overflow: hidden; transition: all 0.5s ease; background: #fafafa; }
-        .content-body { padding: 0 25px 20px 25px; }
+header p{
+color:rgba(255,255,255,0.8);
+}
 
-        .week-row {
-            padding: 15px 0; border-bottom: 1px solid #eee;
-            display: flex; align-items: center; justify-content: space-between; gap: 15px;
-        }
-        .week-row:last-child { border-bottom: none; }
-        .week-number { font-weight: 800; color: var(--accent); font-size: 13px; }
+.container{
+max-width:900px;
+margin:auto;
+padding:0 20px 60px 20px;
+}
 
-        .button-group { display: flex; gap: 8px; flex-wrap: wrap; }
-        .btn {
-            text-decoration: none; padding: 8px 15px; border-radius: var(--radius-sm);
-            font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; transition: 0.2s;
-        }
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-primary:hover { background: var(--primary-light); }
-        .btn-outline { border: 1.5px solid #e2e8f0; color: var(--text-dark); background: white; }
-        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+.search-wrapper{
+margin-top:-30px;
+margin-bottom:35px;
+}
 
-        footer { padding: 40px 20px; background: #e2e8f0; text-align: center; color: var(--text-muted); font-size: 13px; }
-        #empty-state { display: none; text-align: center; padding: 40px; background: white; border-radius: 12px; }
+.search-box{
+width:100%;
+padding:18px 25px;
+border:none;
+border-radius:var(--radius-md);
+box-shadow:var(--shadow-md);
+font-size:16px;
+}
 
-        @media (max-width: 600px) {
-            .week-row { flex-direction: column; align-items: flex-start; }
-            header h1 { font-size: 22px; }
-        }
-    </style>
+.course-card{
+background:white;
+margin-bottom:15px;
+border-radius:var(--radius-md);
+overflow:hidden;
+}
+
+.course-header{
+padding:20px 25px;
+display:flex;
+justify-content:space-between;
+cursor:pointer;
+}
+
+.status-icon{
+width:30px;
+height:30px;
+border-radius:50%;
+background:rgba(201,162,77,0.1);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.course-content{
+max-height:0;
+overflow:hidden;
+transition:0.4s;
+background:#fafafa;
+}
+
+.content-body{
+padding:0 25px 20px 25px;
+}
+
+.week-row{
+padding:15px 0;
+border-bottom:1px solid #eee;
+display:flex;
+justify-content:space-between;
+}
+
+.week-number{
+font-weight:800;
+color:var(--accent);
+}
+
+.button-group{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+}
+
+.btn{
+text-decoration:none;
+padding:8px 15px;
+border-radius:var(--radius-sm);
+font-size:12px;
+font-weight:600;
+}
+
+.btn-primary{
+background:var(--primary);
+color:white;
+}
+
+.btn-outline{
+border:1px solid #e2e8f0;
+color:var(--text-dark);
+}
+
+footer{
+padding:40px;
+background:#e2e8f0;
+text-align:center;
+color:var(--text-muted);
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
-    <img src="https://hitit.edu.tr/images/HititLogoYeni.svg" alt="Hitit Üniversitesi">
-    <h1>Eğitim Kaynakları Portalı</h1>
-    <p>Uzaktan Eğitim Uygulama ve Araştırma Merkezi</p>
+
+<img src="https://hitit.edu.tr/images/HititLogoYeni.svg">
+
+<h1>Eğitim Kaynakları Portalı</h1>
+
+<p>Uzaktan Eğitim Uygulama ve Araştırma Merkezi</p>
+
 </header>
 
 <div class="container">
-    <div class="search-wrapper">
-        <input type="text" id="searchInput" class="search-box" placeholder="Ders adı yazın..." onkeyup="filterCourses()">
-    </div>
 
-    <div id="empty-state">Aradığınız ders bulunamadı.</div>
+<div class="search-wrapper">
+<input type="text" id="searchInput" class="search-box" placeholder="Ders adı yazın..." onkeyup="filterCourses()">
+</div>
 
-    <div class="course-card" data-title="türk eğitim tarihi">
-        <div class="course-header" onclick="toggleAccordion(this)">
-            <h3>Türk Eğitim Tarihi Kaynakları</h3>
-            <div class="status-icon">+</div>
-        </div>
-        <div class="course-content">
-            <div class="content-body">
-                <div class="week-row">
-                    <div class="week-number">01. HAFTA</div>
-                    <div class="button-group">
-                        <a class="btn btn-primary" href="https://www.canva.com/design/DAHBkx41s2w/6dSAWnQzBEGoyIAgcMu6aQ/view" target="_blank">📊 Sunum</a>
-                        <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDEdkHn7s3ZRKH9k_MO3dsEAVPGahKRmb81viruhXgwn10?e=hCabbJ" target="_blank">🎥 Video</a>
-                        <a class="btn btn-outline" href="#">📄 İçerik</a>
-                    </div>
-                </div>
-                <div class="week-row">
-                    <div class="week-number">02. HAFTA</div>
-                    <div class="button-group">
-                        <a class="btn btn-primary" href="https://www.canva.com/design/DAHBv2ivxAA/2pDy9WrGZFJ-yQfFdx0oNQ/view" target="_blank">📊 Sunum</a>
-                        <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDlwU0XzI9NSoKsdMicGV6cAU725ugOtK3rzXkXPAN-djo?e=dtUzP7" target="_blank">🎥 Video</a>
-                        <a class="btn btn-outline" href="#">📄 İçerik</a>
-                    </div>
-                </div>
-                <div class="week-row">
-                    <div class="week-number">03. HAFTA</div>
-                    <div class="button-group">
-                        <a class="btn btn-primary" href="https://www.canva.com/design/DAHCVFFy_2k/O5C0XA9qeAkx1vNX3q_Saw/view" target="_blank">📊 Sunum</a>
-                        <a class="btn btn-outline" href="#">🎥 Video</a>
-                        <a class="btn btn-outline" href="#">📄 İçerik</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div id="empty-state">Aradığınız ders bulunamadı.</div>
 
-    <div class="course-card" data-title="okullarda rehberlik">
-        <div class="course-header" onclick="toggleAccordion(this)">
-            <h3>Okullarda Rehberlik</h3>
-            <div class="status-icon">+</div>
-        </div>
-        <div class="course-content">
-            <div class="content-body">
-                <div class="week-row">
-                    <div class="week-number">01. HAFTA</div>
-                    <div class="button-group">
-                        <a class="btn btn-primary" href="https://www.canva.com/design/DAHAWr4I-3c/8j9h-n15SOxiKHrzCfnk1w/view?utm_content=DAHAWr4I-3c&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h4b24aca5f1" target="_blank">📊 Sunum</a>
-                        <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDe_Bvv1IIoQqha97QYrd6kASVU9rWk_Lf_UJZt3kC_OJg?e=R0KvHb" target="_blank">🎥 Video</a>
-                        <a class="btn btn-outline" href="#">📄 İçerik</a>
-                    </div>
-                <div class="week-row">
-                    <div class="week-number">02. HAFTA</div>
-                    <div class="button-group">
-                        <a class="btn btn-primary" href="https://www.canva.com/design/DAHBkw9RJAo/ZEaurW0JCbunUzyYDmTmiQ/view?utm_content=DAHBkw9RJAo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd8a264c5fb" target="_blank">📊 Sunum</a>
-                        <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDe_Bvv1IIoQqha97QYrd6kASVU9rWk_Lf_UJZt3kC_OJg?e=R0KvHb" target="_blank">🎥 Video</a>
-                        <a class="btn btn-outline" href="#">📄 İçerik</a>
-                </div>
-                <div class="week-row">
-                    <div class="week-number">03. HAFTA</div>
-                    <div class="button-group">
-                         <a class="btn btn-primary" href="https://www.canva.com/design/DAHBkw9RJAo/ZEaurW0JCbunUzyYDmTmiQ/view?utm_content=DAHBkw9RJAo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd8a264c5fb" target="_blank">📊 Sunum</a>
-                        <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDe_Bvv1IIoQqha97QYrd6kASVU9rWk_Lf_UJZt3kC_OJg?e=R0KvHb" target="_blank">🎥 Video</a>
-                        <a class="btn btn-outline" href="#">📄 İçerik</a>
-                 </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="course-card" data-title="eğitim psikolojisi">
-        <div class="course-header" onclick="toggleAccordion(this)">
-            <h3>Eğitim Psikolojisi</h3>
-            <div class="status-icon">+</div>
-        </div>
-        <div class="course-content">
-            <div class="content-body">
-                <div class="week-row">
-                    <div class="week-number">01. HAFTA</div>
-                    <div class="button-group">
-                        <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQA7TMCJVkfuRIPXcinBRzL_AfWU7TW8yf16ThxYpaqwLIQ?e=Mzm3wf" target="_blank">🎥 Video</a>
-                        <a class="btn btn-outline" href="#">📄 İçerik</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- TÜRK EĞİTİM TARİHİ -->
 
-    <div class="course-card" data-title="türk eğitim sistemi ve okul yönetimi">
-        <div class="course-header" onclick="toggleAccordion(this)">
-            <h3>Türk Eğitim Sistemi ve Okul Yönetimi</h3>
-            <div class="status-icon">+</div>
-        </div>
-        <div class="course-content">
-            <div class="content-body">
-                <div class="week-row">
-                    <div class="week-number">01. HAFTA</div>
-                    <div class="button-group">
-                        <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDlwU0XzI9NSoKsdMicGV6cAU725ugOtK3rzXkXPAN-djo?e=dtUzP7" target="_blank">🎥 Video</a>
-                        <a class="btn btn-outline" href="#">📄 İçerik</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="course-card" data-title="türk eğitim tarihi">
 
-     <div class="course-card" data-title="ogretim ilke ve yontemleri">
-        <div class="course-header" onclick="toggleAccordion(this)">
-            <h3>Öğretim İlke ve Yöntemleri</h3>
-            <div class="status-icon">+</div>
-        </div>
-        <div class="course-content">
-            <div class="content-body">
-                <div class="week-row">
-                    <div class="week-number">01. HAFTA</div>
-                    <div class="button-group">
-                        <a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQASMen-MuWjSY9o6cRnvt6ZAanURx9ALlUXRlyHxFTVVsg?e=SsQMyS" target="_blank">🎥 Video</a>
-                        <a class="btn btn-outline" href="#">📄 İçerik</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="course-header" onclick="toggleAccordion(this)">
+<h3>Türk Eğitim Tarihi Kaynakları</h3>
+<div class="status-icon">+</div>
+</div>
+
+<div class="course-content">
+
+<div class="content-body">
+
+<div class="week-row">
+<div class="week-number">01. HAFTA</div>
+<div class="button-group">
+
+<a class="btn btn-primary" href="https://www.canva.com/design/DAHBkx41s2w/6dSAWnQzBEGoyIAgcMu6aQ/view" target="_blank">📊 Sunum</a>
+
+<a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDEdkHn7s3ZRKH9k_MO3dsEAVPGahKRmb81viruhXgwn10?e=hCabbJ" target="_blank">🎥 Video</a>
+
+</div>
+</div>
+
+<div class="week-row">
+<div class="week-number">02. HAFTA</div>
+
+<div class="button-group">
+
+<a class="btn btn-primary" href="https://www.canva.com/design/DAHBv2ivxAA/2pDy9WrGZFJ-yQfFdx0oNQ/view" target="_blank">📊 Sunum</a>
+
+<a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDlwU0XzI9NSoKsdMicGV6cAU725ugOtK3rzXkXPAN-djo?e=dtUzP7" target="_blank">🎥 Video</a>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- OKULLARDA REHBERLİK -->
+
+<div class="course-card" data-title="okullarda rehberlik">
+
+<div class="course-header" onclick="toggleAccordion(this)">
+<h3>Okullarda Rehberlik</h3>
+<div class="status-icon">+</div>
+</div>
+
+<div class="course-content">
+
+<div class="content-body">
+
+<div class="week-row">
+<div class="week-number">01. HAFTA</div>
+
+<div class="button-group">
+
+<a class="btn btn-primary" href="https://www.canva.com/design/DAHAWr4I-3c/8j9h-n15SOxiKHrzCfnk1w/view" target="_blank">📊 Sunum</a>
+
+<a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDe_Bvv1IIoQqha97QYrd6kASVU9rWk_Lf_UJZt3kC_OJg?e=R0KvHb" target="_blank">🎥 Video</a>
+
+</div>
+</div>
+
+
+<div class="week-row">
+
+<div class="week-number">02. HAFTA</div>
+
+<div class="button-group">
+
+<a class="btn btn-primary" href="https://www.canva.com/design/DAHBkw9RJAo/ZEaurW0JCbunUzyYDmTmiQ/view" target="_blank">📊 Sunum</a>
+
+<a class="btn btn-outline" href="https://1drv.ms/v/c/22cb6c37a95edd3f/IQDe_Bvv1IIoQqha97QYrd6kASVU9rWk_Lf_UJZt3kC_OJg?e=R0KvHb" target="_blank">🎥 Video</a>
 
 </div>
 
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
 <footer>
-    <p><b>© 2026 Hitit Üniversitesi</b></p>
-    <p>Uzaktan Eğitim Uygulama ve Araştırma Merkezi (HUZEM)</p>
+
+<p><b>© 2026 Hitit Üniversitesi</b></p>
+
+<p>Uzaktan Eğitim Uygulama ve Araştırma Merkezi (HUZEM)</p>
+
 </footer>
 
+
 <script>
-    function toggleAccordion(element) {
-        const card = element.parentElement;
-        const content = element.nextElementSibling;
-        const icon = element.querySelector('.status-icon');
-        
-        const isOpen = card.classList.contains('active');
-        
-        // Diğerlerini kapat
-        document.querySelectorAll('.course-card').forEach(c => {
-            c.classList.remove('active');
-            c.querySelector('.course-content').style.maxHeight = null;
-            c.querySelector('.status-icon').textContent = '+';
-        });
 
-        if (!isOpen) {
-            card.classList.add('active');
-            content.style.maxHeight = content.scrollHeight + "px";
-            icon.textContent = '−';
-        }
-    }
+function toggleAccordion(element){
 
-    function filterCourses() {
-        const val = document.getElementById('searchInput').value.toLowerCase();
-        const cards = document.querySelectorAll('.course-card');
-        let found = false;
-        cards.forEach(card => {
-            const title = card.getAttribute('data-title');
-            if(title.includes(val)) {
-                card.style.display = "block";
-                found = true;
-            } else {
-                card.style.display = "none";
-            }
-        });
-        document.getElementById('empty-state').style.display = found ? "none" : "block";
-    }
+const card=element.parentElement;
+const content=element.nextElementSibling;
+
+document.querySelectorAll('.course-card').forEach(c=>{
+c.classList.remove('active');
+c.querySelector('.course-content').style.maxHeight=null;
+});
+
+card.classList.add('active');
+
+content.style.maxHeight=content.scrollHeight+"px";
+
+}
+
+function filterCourses(){
+
+const val=document.getElementById('searchInput').value.toLowerCase();
+
+const cards=document.querySelectorAll('.course-card');
+
+let found=false;
+
+cards.forEach(card=>{
+
+const title=card.getAttribute('data-title');
+
+if(title.includes(val)){
+card.style.display="block";
+found=true;
+}
+else{
+card.style.display="none";
+}
+
+});
+
+document.getElementById('empty-state').style.display=found?"none":"block";
+
+}
+
 </script>
 
 </body>

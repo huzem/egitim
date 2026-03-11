@@ -44,6 +44,7 @@ border:none;
 margin-bottom:30px;
 font-size:16px;
 box-shadow:0 5px 10px rgba(0,0,0,0.1);
+box-sizing: border-box;
 }
 
 .course-card{
@@ -70,7 +71,7 @@ color:#c9a24d;
 .course-content{
 max-height:0;
 overflow:hidden;
-transition:0.4s;
+transition:0.4s ease-out;
 background:#fafafa;
 }
 
@@ -81,6 +82,7 @@ padding:10px 20px 20px;
 .week-row{
 display:flex;
 justify-content:space-between;
+align-items: center;
 padding:12px 0;
 border-bottom:1px solid #eee;
 }
@@ -103,6 +105,7 @@ border-radius:6px;
 font-size:12px;
 text-decoration:none;
 font-weight:600;
+display: inline-block;
 }
 
 .btn-primary{
@@ -128,285 +131,188 @@ background:#e2e8f0;
 <body>
 
 <header>
-
-<img src="https://hitit.edu.tr/images/HititLogoYeni.svg">
-
+<img src="https://hitit.edu.tr/images/HititLogoYeni.svg" alt="Hitit Logo">
 <h2>Eğitim Kaynakları Portalı</h2>
-
 <p>Uzaktan Eğitim Uygulama ve Araştırma Merkezi</p>
-
 </header>
 
-
 <div class="container">
-
 <input type="text" id="searchInput" class="search-box" placeholder="Ders adı yazın..." onkeyup="filterCourses()">
-
 <div id="course-container"></div>
-
 </div>
-
 
 <footer>
-
 <b>© 2026 Hitit Üniversitesi</b>
-
 </footer>
 
-
-
 <script>
+const courses = [
+    {
+        title: "Türk Eğitim Tarihi",
+        weeks: [
+            {
+                week: "02",
+                sunum: "https://www.canva.com/design/DAHBkx41s2w/6dSAWnQzBEGoyIAgcMu6aQ/view",
+                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQDEdkHn7s3ZRKH9k_MO3dsEAVPGahKRmb81viruhXgwn10?e=hCabbJ"
+            },
+            {
+                week: "03",
+                sunum: "https://www.canva.com/design/DAHBv2ivxAA/2pDy9WrGZFJ-yQfFdx0oNQ/view",
+                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQAHEkPKroCMTI5_9Uy56NPzAV-Eb_-VlR1-6xNa0W8Ghyc?e=8ja2SW"
+            },
+            {
+                week: "04-05",
+                sunum: "https://www.canva.com/design/DAHCVFFy_2k/O5C0XA9qeAkx1vNX3q_Saw/view"
+            }
+        ]
+    },
+    {
+        title: "Okullarda Rehberlik",
+        weeks: [
+            {
+                week: "01",
+                sunum: "https://www.canva.com/design/DAHAWr4I-3c/8j9h-n15SOxiKHrzCfnk1w/view",
+                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQDe_Bvv1IIoQqha97QYrd6kASVU9rWk_Lf_UJZt3kC_OJg?e=R0KvHb"
+            },
+            {
+                week: "02",
+                sunum: "https://www.canva.com/design/DAHBkw9RJAo/ZEaurW0JCbunUzyYDmTmiQ/view",
+                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQAhqlCnjo7DQrgVwO-ulq0WAWb4nryP0AGRcTs2bKUe2lc?e=fQZg2L"
+            },
+            {
+                week: "03",
+                sunum: "https://www.canva.com/design/DAHBkw9RJAo/ZEaurW0JCbunUzyYDmTmiQ/view",
+                video: ""
+            }
+        ]
+    },
+    {
+        title: "Eğitim Psikolojisi",
+        weeks: [
+            {
+                week: "01",
+                sunum: "",
+                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQA7TMCJVkfuRIPXcinBRzL_AfWU7TW8yf16ThxYpaqwLIQ?e=Mzm3wf"
+            }
+        ]
+    },
+    {
+        title: "Türk Eğitim Sistemi ve Okul Yönetimi",
+        weeks: [
+            {
+                week: "01",
+                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQDlwU0XzI9NSoKsdMicGV6cAU725ugOtK3rzXkXPAN-djo?e=dtUzP7"
+            }
+        ]
+    },
+    {
+        title: "Öğretim İlke ve Yöntemleri",
+        weeks: [
+            {
+                week: "01",
+                sunum: "https://www.canva.com/design/DAHDdPbRkKw/1KmIVMAW9cH0Csfg8kkQ3g/view?utm_content=DAHDdPbRkKw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h0fc13d7197",
+                video: ""
+            },
+            {
+                week: "02",
+                sunum: "https://www.canva.com/design/DAHDdNjJPzo/J8B0_TETW54xUfboATJfpA/view?utm_content=DAHDdNjJPzo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h7566ee0692",
+                video: ""
+            },
+            {
+                week: "03",
+                sunum: "https://www.canva.com/design/DAHDdPQofv4/h06r8I1BpOWMIF3klIdL1w/view?utm_content=DAHDdPQofv4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h7cdc47002c",
+                video: ""
+            },
+            {
+                week: "04",
+                sunum: "https://www.canva.com/design/DAHDhzd5qMM/gI2KISNr9GABl4mhng-ITg/view?utm_content=DAHDhzd5qMM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfa039abb2f",
+                video: ""
+            },
+            {
+                week: "05",
+                sunum: "https://www.canva.com/design/DAHDiNaqUOY/77Fo9so8YBT03knnRpaJwA/view?utm_content=DAHDiNaqUOY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf454fa2327",
+                video: ""
+            },
+            {
+                week: "06",
+                sunum: "https://www.canva.com/design/DAHDiHsTmso/CWxCnp772liSrs7IphWvxA/view?utm_content=DAHDiHsTmso&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h765375e9f3",
+                video: ""
+            },
+            {
+                week: "07",
+                sunum: "https://www.canva.com/design/DAHDiNNNUD8/yyWjhUhdVnvw7mrkhteUhw/view?utm_content=DAHDiNNNUD8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9ec5dbb68f",
+                video: ""
+            }
+        ]
+    }
+];
 
-const courses=[
+function createCourses() {
+    const container = document.getElementById("course-container");
+    let allCardsHTML = "";
 
-/* ======================
-   TÜRK EĞİTİM TARİHİ
-====================== */
-  
-{
-title:"Türk Eğitim Tarihi",
-weeks:[
-{
-week:"02",
-sunum:"https://www.canva.com/design/DAHBkx41s2w/6dSAWnQzBEGoyIAgcMu6aQ/view",
-video:"https://1drv.ms/v/c/22cb6c37a95edd3f/IQDEdkHn7s3ZRKH9k_MO3dsEAVPGahKRmb81viruhXgwn10?e=hCabbJ"
-},
-{
-week:"03",
-sunum:"https://www.canva.com/design/DAHBv2ivxAA/2pDy9WrGZFJ-yQfFdx0oNQ/view",
-video:"https://1drv.ms/v/c/22cb6c37a95edd3f/IQAHEkPKroCMTI5_9Uy56NPzAV-Eb_-VlR1-6xNa0W8Ghyc?e=8ja2SW"
-},
-{
-week:"04-05",
-sunum:"https://www.canva.com/design/DAHCVFFy_2k/O5C0XA9qeAkx1vNX3q_Saw/view"
-}
-]
-},
+    courses.forEach(course => {
+        let weeksHTML = "";
+        course.weeks.forEach(w => {
+            weeksHTML += `
+                <div class="week-row">
+                    <div class="week-number">${w.week}. HAFTA</div>
+                    <div class="button-group">
+                        ${w.sunum ? `<a class="btn btn-primary" href="${w.sunum}" target="_blank">📊 Sunum</a>` : ""}
+                        ${w.video ? `<a class="btn btn-outline" href="${w.video}" target="_blank">🎥 Video</a>` : ""}
+                        ${w.icerik ? `<a class="btn btn-outline" href="${w.icerik}" target="_blank">📄 İçerik</a>` : ""}
+                    </div>
+                </div>`;
+        });
 
-  /* ======================
-   OKULLARDA REHBERLİK
-====================== */
-  
-{
-title:"Okullarda Rehberlik",
-weeks:[
-{
-week:"01",
-sunum:"https://www.canva.com/design/DAHAWr4I-3c/8j9h-n15SOxiKHrzCfnk1w/view",
-video:"https://1drv.ms/v/c/22cb6c37a95edd3f/IQDe_Bvv1IIoQqha97QYrd6kASVU9rWk_Lf_UJZt3kC_OJg?e=R0KvHb"
-},
-{
-week:"02",
-sunum:"https://www.canva.com/design/DAHBkw9RJAo/ZEaurW0JCbunUzyYDmTmiQ/view",
-video:"https://1drv.ms/v/c/22cb6c37a95edd3f/IQAhqlCnjo7DQrgVwO-ulq0WAWb4nryP0AGRcTs2bKUe2lc?e=fQZg2L"
-},
-{
-week:"03",
-sunum:"https://www.canva.com/design/DAHBkw9RJAo/ZEaurW0JCbunUzyYDmTmiQ/view",
-video:""
-}
-]
-},
-
-/* ======================
-   EĞİTİM PSİKOLOJİSİ
-====================== */
-  
-  
-{
-title:"Eğitim Psikolojisi",
-weeks:[
-{
-week:"01",
-sunum: 
-video:"https://1drv.ms/v/c/22cb6c37a95edd3f/IQA7TMCJVkfuRIPXcinBRzL_AfWU7TW8yf16ThxYpaqwLIQ?e=Mzm3wf"
-},
-
-{
-week:"01",
-video:"https://1drv.ms/v/c/22cb6c37a95edd3f/IQA7TMCJVkfuRIPXcinBRzL_AfWU7TW8yf16ThxYpaqwLIQ?e=Mzm3wf"
-},
-   
-]
-},
-
-  
-/* ======================
-   TÜRK EĞİTİM SİSTEMİ VE OKUL YÖNETİMİ
-====================== */
-  
-{
-title:"Türk Eğitim Sistemi ve Okul Yönetimi",
-weeks:[
-{
-week:"01",
-video:"https://1drv.ms/v/c/22cb6c37a95edd3f/IQDlwU0XzI9NSoKsdMicGV6cAU725ugOtK3rzXkXPAN-djo?e=dtUzP7"
-}
-]
-},
-
-  /* ======================
-   ÖĞRETİM İLKE VE YÖNTEMLERİ
-====================== */
-  
-{
-title:"Öğretim İlke ve Yöntemleri",
-weeks:[
-{
-week:"01",
-sunum: "https://www.canva.com/design/DAHDdPbRkKw/1KmIVMAW9cH0Csfg8kkQ3g/view?utm_content=DAHDdPbRkKw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h0fc13d7197",
-video:""
-},
-
-{
-week:"02",
-sunum: "https://www.canva.com/design/DAHDdNjJPzo/J8B0_TETW54xUfboATJfpA/view?utm_content=DAHDdNjJPzo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h7566ee0692",
-video:""
-},
-
-{
-week:"03",
-sunum: "https://www.canva.com/design/DAHDdPQofv4/h06r8I1BpOWMIF3klIdL1w/view?utm_content=DAHDdPQofv4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h7cdc47002c",
-video:""
-},
-
-{
-week:"04",
-sunum: "https://www.canva.com/design/DAHDhzd5qMM/gI2KISNr9GABl4mhng-ITg/view?utm_content=DAHDhzd5qMM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfa039abb2f",
-video:""
-},
-
-{
-week:"05",
-sunum: "https://www.canva.com/design/DAHDiNaqUOY/77Fo9so8YBT03knnRpaJwA/view?utm_content=DAHDiNaqUOY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf454fa2327",
-video:""
-},
-
-{
-week:"06",
-sunum: "https://www.canva.com/design/DAHDiHsTmso/CWxCnp772liSrs7IphWvxA/view?utm_content=DAHDiHsTmso&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h765375e9f3",
-video:""
-},
-
-{
-week:"07",
-sunum: "https://www.canva.com/design/DAHDiNNNUD8/yyWjhUhdVnvw7mrkhteUhw/view?utm_content=DAHDiNNNUD8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9ec5dbb68f",
-video:""
-},
-   
-
-]
+        allCardsHTML += `
+            <div class="course-card" data-title="${course.title.toLowerCase()}">
+                <div class="course-header" onclick="toggleAccordion(this)">
+                    ${course.title}
+                    <div class="status-icon">+</div>
+                </div>
+                <div class="course-content">
+                    <div class="content-body">
+                        ${weeksHTML}
+                    </div>
+                </div>
+            </div>`;
+    });
+    container.innerHTML = allCardsHTML;
 }
 
-]
+function toggleAccordion(element) {
+    const card = element.parentElement;
+    const content = element.nextElementSibling;
+    const icon = element.querySelector('.status-icon');
+    const isOpen = card.classList.contains('active');
 
-function createCourses(){
+    // Diğerlerini kapat
+    document.querySelectorAll('.course-card').forEach(c => {
+        c.classList.remove('active');
+        c.querySelector('.course-content').style.maxHeight = null;
+        c.querySelector('.status-icon').textContent = '+';
+    });
 
-const container=document.getElementById("course-container")
-
-courses.forEach(course=>{
-
-let weeksHTML=""
-
-course.weeks.forEach(w=>{
-
-weeksHTML+=`
-
-<div class="week-row">
-
-<div class="week-number">${w.week}. HAFTA</div>
-
-<div class="button-group">
-
-${w.sunum ? `<a class="btn btn-primary" href="${w.sunum}" target="_blank">📊 Sunum</a>` : ""}
-
-${w.video ? `<a class="btn btn-outline" href="${w.video}" target="_blank">🎥 Video</a>` : ""}
-
-${w.icerik ? `<a class="btn btn-outline" href="${w.icerik}" target="_blank">📄 İçerik</a>` : ""}
-
-</div>
-
-</div>
-
-`
-
-})
-
-const card=`
-
-<div class="course-card" data-title="${course.title.toLowerCase()}">
-
-<div class="course-header" onclick="toggleAccordion(this)">
-
-${course.title}
-
-<div class="status-icon">+</div>
-
-</div>
-
-<div class="course-content">
-
-<div class="content-body">
-
-${weeksHTML}
-
-</div>
-
-</div>
-
-</div>
-
-`
-
-container.innerHTML+=card
-
-})
-
+    if (!isOpen) {
+        card.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + "px";
+        icon.textContent = '−';
+    }
 }
 
-createCourses()
+function filterCourses() {
+    const val = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.course-card');
 
-function toggleAccordion(element){
-
-const card=element.parentElement
-const content=element.nextElementSibling
-const icon=element.querySelector('.status-icon')
-
-const isOpen=card.classList.contains('active')
-
-document.querySelectorAll('.course-card').forEach(c=>{
-c.classList.remove('active')
-c.querySelector('.course-content').style.maxHeight=null
-c.querySelector('.status-icon').textContent='+'
-})
-
-if(!isOpen){
-
-card.classList.add('active')
-
-content.style.maxHeight=content.scrollHeight+"px"
-
-icon.textContent='−'
-
+    cards.forEach(card => {
+        const title = card.getAttribute('data-title');
+        card.style.display = title.includes(val) ? "block" : "none";
+    });
 }
 
-}
-
-function filterCourses(){
-
-const val=document.getElementById('searchInput').value.toLowerCase()
-
-const cards=document.querySelectorAll('.course-card')
-
-cards.forEach(card=>{
-
-const title=card.getAttribute('data-title')
-
-card.style.display=title.includes(val)?"block":"none"
-
-})
-
-}
+// Sayfa yüklendiğinde dersleri oluştur
+createCourses();
 
 </script>
 

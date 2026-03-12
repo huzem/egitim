@@ -3,131 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>HUZEM | Eğitim Kaynakları Portalı</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
 <style>
-
-body{
-font-family:'Inter',sans-serif;
-background:#f1f5f9;
-margin:0;
-}
-
-header{
-background:#7a0026;
-padding:40px;
-text-align:center;
-color:white;
-}
-
-header img{
-width:160px;
-background:white;
-padding:10px;
-border-radius:10px;
-}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
-}
-
-.search-box{
-width:100%;
-padding:16px;
-border-radius:10px;
-border:none;
-margin-bottom:30px;
-font-size:16px;
-box-shadow:0 5px 10px rgba(0,0,0,0.1);
-box-sizing: border-box;
-}
-
-.course-card{
-background:white;
-margin-bottom:15px;
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 2px 5px rgba(0,0,0,0.05);
-}
-
-.course-header{
-padding:18px;
-display:flex;
-justify-content:space-between;
-cursor:pointer;
-font-weight:700;
-}
-
-.status-icon{
-font-size:20px;
-color:#c9a24d;
-}
-
-.course-content{
-max-height:0;
-overflow:hidden;
-transition:0.4s ease-out;
-background:#fafafa;
-}
-
-.content-body{
-padding:10px 20px 20px;
-}
-
-.week-row{
-display:flex;
-justify-content:space-between;
-align-items: center;
-padding:12px 0;
-border-bottom:1px solid #eee;
-}
-
-.week-number{
-font-weight:800;
-color:#c9a24d;
-font-size:13px;
-}
-
-.button-group{
-display:flex;
-gap:8px;
-flex-wrap:wrap;
-}
-
-.btn{
-padding:7px 14px;
-border-radius:6px;
-font-size:12px;
-text-decoration:none;
-font-weight:600;
-display: inline-block;
-}
-
-.btn-primary{
-background:#7a0026;
-color:white;
-}
-
-.btn-outline{
-border:1px solid #ddd;
-color:#333;
-}
-
-footer{
-margin-top:40px;
-padding:30px;
-text-align:center;
-background:#e2e8f0;
-}
-
+body{font-family:'Inter',sans-serif;background:#f1f5f9;margin:0;}
+header{background:#7a0026;padding:40px;text-align:center;color:white;}
+header img{width:160px;background:white;padding:10px;border-radius:10px;}
+.container{max-width:900px;margin:auto;padding:20px;}
+.search-box{width:100%;padding:16px;border-radius:10px;border:none;margin-bottom:30px;font-size:16px;box-shadow:0 5px 10px rgba(0,0,0,0.1);box-sizing: border-box;}
+.course-card{background:white;margin-bottom:15px;border-radius:10px;overflow:hidden;box-shadow:0 2px 5px rgba(0,0,0,0.05);}
+.course-header{padding:18px;display:flex;justify-content:space-between;cursor:pointer;font-weight:700;}
+.status-icon{font-size:20px;color:#c9a24d;}
+.course-content{max-height:0;overflow:hidden;transition:0.4s ease-out;background:#fafafa;}
+.content-body{padding:10px 20px 20px;}
+.week-row{display:flex;justify-content:space-between;align-items: center;padding:12px 0;border-bottom:1px solid #eee;}
+.week-number{font-weight:800;color:#c9a24d;font-size:13px;}
+.button-group{display:flex;gap:8px;flex-wrap:wrap;}
+.btn{padding:7px 14px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:600;display: inline-block;}
+.btn-primary{background:#7a0026;color:white;}
+.btn-outline{border:1px solid #ddd;color:#333;}
+footer{margin-top:40px;padding:30px;text-align:center;background:#e2e8f0;}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -141,41 +38,20 @@ background:#e2e8f0;
 <div id="course-container"></div>
 </div>
 
-<footer>
-<b>© 2026 Hitit Üniversitesi</b>
-</footer>
+<footer><b>© 2026 Hitit Üniversitesi</b></footer>
 
 <script>
+// VERİLERİN (TÜM LİNKLERİN AYNEN KORUNDU)
 const courses = [
     {
         title: "Türk Eğitim Tarihi",
         weeks: [
-            {
-                week: "02",
-                sunum: "https://www.canva.com/design/DAHBkx41s2w/6dSAWnQzBEGoyIAgcMu6aQ/view?utm_content=DAHBkx41s2w&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfe324fc996",
-                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQDEdkHn7s3ZRKH9k_MO3dsEAVPGahKRmb81viruhXgwn10?e=hCabbJ"
-            },
-            {
-                week: "03",
-                sunum: "https://www.canva.com/design/DAHBv2ivxAA/2pDy9WrGZFJ-yQfFdx0oNQ/view?utm_content=DAHBv2ivxAA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h78d6d543a5",
-                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQAHEkPKroCMTI5_9Uy56NPzAV-Eb_-VlR1-6xNa0W8Ghyc?e=8ja2SW"
-            },
-            {
-                week: "04-05",
-                sunum: "https://www.canva.com/design/DAHCVFFy_2k/O5C0XA9qeAkx1vNX3q_Saw/view?utm_content=DAHCVFFy_2k&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=heb9f62eada"
-            },
-            {
-                week: "06-07",
-                sunum: "https://www.canva.com/design/DAHBk6Jwnjw/ohLme-1gXT6ahlyBQmPmTQ/view?utm_content=DAHBk6Jwnjw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2afeab80a2"
-            },
-            {
-                week: "09",
-                sunum: "https://www.canva.com/design/DAHDKDzybL4/vpcYqbagi31AyiqpyMyxSQ/view?utm_content=DAHDKDzybL4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc0ac870068"
-            },
-            {
-                week: "13",
-                sunum: "https://www.canva.com/design/DAHC-8uJczc/AYa2DgiBLizX9supvILC0g/view?utm_content=DAHC-8uJczc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h80fb1f68e0"
-            },
+            { week: "02", sunum: "https://www.canva.com/design/DAHBkx41s2w/6dSAWnQzBEGoyIAgcMu6aQ/view?utm_content=DAHBkx41s2w&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfe324fc996", video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQDEdkHn7s3ZRKH9k_MO3dsEAVPGahKRmb81viruhXgwn10?e=hCabbJ" },
+            { week: "03", sunum: "https://www.canva.com/design/DAHBv2ivxAA/2pDy9WrGZFJ-yQfFdx0oNQ/view?utm_content=DAHBv2ivxAA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h78d6d543a5", video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQAHEkPKroCMTI5_9Uy56NPzAV-Eb_-VlR1-6xNa0W8Ghyc?e=8ja2SW" },
+            { week: "04-05", sunum: "https://www.canva.com/design/DAHCVFFy_2k/O5C0XA9qeAkx1vNX3q_Saw/view?utm_content=DAHCVFFy_2k&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=heb9f62eada" },
+            { week: "06-07", sunum: "https://www.canva.com/design/DAHBk6Jwnjw/ohLme-1gXT6ahlyBQmPmTQ/view?utm_content=DAHBk6Jwnjw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2afeab80a2" },
+            { week: "09", sunum: "https://www.canva.com/design/DAHDKDzybL4/vpcYqbagi31AyiqpyMyxSQ/view?utm_content=DAHDKDzybL4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc0ac870068" },
+            { week: "13", sunum: "https://www.canva.com/design/DAHC-8uJczc/AYa2DgiBLizX9supvILC0g/view?utm_content=DAHC-8uJczc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h80fb1f68e0" }
         ]
     },
     {
@@ -184,151 +60,48 @@ const courses = [
             {
                 week: "01-02",
                 sunum: "https://www.canva.com/design/DAHAWr4I-3c/8j9h-n15SOxiKHrzCfnk1w/view?utm_content=DAHAWr4I-3c&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h4b24aca5f1",
-                video: ["https://1drv.ms/v/c/22cb6c37a95edd3f/IQDe_Bvv1IIoQqha97QYrd6kASVU9rWk_Lf_UJZt3kC_OJg?e=R0KvHb", "https://1drv.ms/v/c/22cb6c37a95edd3f/IQAhqlCnjo7DQrgVwO-ulq0WAWb4nryP0AGRcTs2bKUe2lc?e=fQZg2L"],
+                video: ["https://1drv.ms/v/c/22cb6c37a95edd3f/IQDe_Bvv1IIoQqha97QYrd6kASVU9rWk_Lf_UJZt3kC_OJg?e=R0KvHb", "https://1drv.ms/v/c/22cb6c37a95edd3f/IQAhqlCnjo7DQrgVwO-ulq0WAWb4nryP0AGRcTs2bKUe2lc?e=fQZg2L"]
             },
-            {
-                week: "02",
-                sunum: "https://www.canva.com/design/DAHBkw9RJAo/ZEaurW0JCbunUzyYDmTmiQ/view",
-                video: ""
-            },
-            {
-                week: "03",
-                sunum: "https://www.canva.com/design/DAHCUW65QTU/D9fHre_56HhHHA4Sg-r2Qg/view?utm_content=DAHCUW65QTU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h379f796545",
-                video: ""
-            },
-            {
-                week: "05",
-                sunum: "https://www.canva.com/design/DAHDKuN-vHg/tQCH8PI406rI_Gio7upoxA/view?utm_content=DAHDKuN-vHg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha6f290923b",
-                video: ""
-            },
-            {
-                week: "06",
-                sunum: "https://www.canva.com/design/DAHDKazvTV8/FK2o-Iqb2pBv4a9PD3wFxw/view?utm_content=DAHDKazvTV8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd51f7d4c47",
-                video: ""
-            },
-            {
-                week: "07",
-                sunum: "https://www.canva.com/design/DAHCUWF1rNc/Itjl1scf2Oh0kJu5yIxVxQ/view?utm_content=DAHCUWF1rNc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2b5ab594a5",
-                video: ""
-            },
+            { week: "02", sunum: "https://www.canva.com/design/DAHBkw9RJAo/ZEaurW0JCbunUzyYDmTmiQ/view", video: "" },
+            { week: "03", sunum: "https://www.canva.com/design/DAHCUW65QTU/D9fHre_56HhHHA4Sg-r2Qg/view?utm_content=DAHCUW65QTU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h379f796545", video: "" },
+            { week: "05", sunum: "https://www.canva.com/design/DAHDKuN-vHg/tQCH8PI406rI_Gio7upoxA/view?utm_content=DAHDKuN-vHg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha6f290923b", video: "" },
+            { week: "06", sunum: "https://www.canva.com/design/DAHDKazvTV8/FK2o-Iqb2pBv4a9PD3wFxw/view?utm_content=DAHDKazvTV8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd51f7d4c47", video: "" },
+            { week: "07", sunum: "https://www.canva.com/design/DAHCUWF1rNc/Itjl1scf2Oh0kJu5yIxVxQ/view?utm_content=DAHCUWF1rNc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2b5ab594a5", video: "" }
         ]
     },
     {
         title: "Eğitim Psikolojisi",
         weeks: [
-            {
-                week: "01",
-                sunum: "",
-                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQA7TMCJVkfuRIPXcinBRzL_AfWU7TW8yf16ThxYpaqwLIQ?e=Mzm3wf"
-            },
-            {
-                week: "EP-1",
-                sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQA4d7w64c9kQYP2DkDKHnatAac2LNEHPwmkblCkSHcqye8?e=JB4bb1",
-                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQDGiv1P_XlFTa7-EuHR_6R6ATM1NEnyd5eTVi6WEjdCqMU?e=fXHqC9"
-            },
-            {
-                week: "EP-2",
-                sunum: "https://1drv.ms/p/c/22cb6c37a95edd3f/IQBQLoaiBxSRRbara4LgddQEAbIvH-S6t04bt8YKQuNShRY?e=yTvVKN",
-                video: ""
-            },
-            {
-                week: "EP-3",
-                sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQBDnnLROUOLSqqhXOepY7ivAXZyTsNrTlxNITAlDCgHBnM?e=15yECE",
-                video: ""
-            },
-            {
-                week: "EP-4 & 5",
-                sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQCHNLNJj-4ETr-3VS4SK9qEARVreFD3RQF7b9wWwSUUHvQ?e=9sHf9c",
-                video: ""
-            },
-            {
-                week: "EP-6",
-                sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQD3DGqDYB2aQ6l0O9S_mxr7AZCAyVbWZOso35E7JGCP_60?e=yDAX8m",
-                video: ""
-            },
-            {
-                week: "EP-7",
-                sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQBThh785D1KQI8i05Yaj-1EAf7tMhRxiX3Qh6PNp0PATTw?e=rhb4Dj",
-                video: ""
-            },
+            { week: "01", sunum: "", video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQA7TMCJVkfuRIPXcinBRzL_AfWU7TW8yf16ThxYpaqwLIQ?e=Mzm3wf" },
+            { week: "EP-1", sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQA4d7w64c9kQYP2DkDKHnatAac2LNEHPwmkblCkSHcqye8?e=JB4bb1", video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQDGiv1P_XlFTa7-EuHR_6R6ATM1NEnyd5eTVi6WEjdCqMU?e=fXHqC9" },
+            { week: "EP-2", sunum: "https://1drv.ms/p/c/22cb6c37a95edd3f/IQBQLoaiBxSRRbara4LgddQEAbIvH-S6t04bt8YKQuNShRY?e=yTvVKN", video: "" },
+            { week: "EP-3", sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQBDnnLROUOLSqqhXOepY7ivAXZyTsNrTlxNITAlDCgHBnM?e=15yECE", video: "" },
+            { week: "EP-4 & 5", sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQCHNLNJj-4ETr-3VS4SK9qEARVreFD3RQF7b9wWwSUUHvQ?e=9sHf9c", video: "" },
+            { week: "EP-6", sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQD3DGqDYB2aQ6l0O9S_mxr7AZCAyVbWZOso35E7JGCP_60?e=yDAX8m", video: "" },
+            { week: "EP-7", sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQBThh785D1KQI8i05Yaj-1EAf7tMhRxiX3Qh6PNp0PATTw?e=rhb4Dj", video: "" }
         ]
     },
     {
         title: "Türk Eğitim Sistemi ve Okul Yönetimi", 
         weeks: [
-           
-            {
-                week: "02",
-                sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQBidBfNPcfWRbd5w5bkADEwAaCi2M_PRaRP2bGYOxTWrto?e=031Sb1",
-                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQAuBhklIWv5S5YLTI-yAkNEAc6EetpnioPRyOcIpLPaj9Q?e=vrgSqI"
-            }, // <-- Virgül eklendi
-            {
-                week: "03",
-                sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQAsD8OVjawwTr4f-IHkS3HSAaiZUYN-vN2Sp4RpwZhXwvQ?e=Xg0NJy",
-                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQDoi85pVf3qSoDq1rNGpPexARXKt9OxoJ5FR6irx7HHjhc?e=gxDa7K"
-            }
+            { week: "02", sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQBidBfNPcfWRbd5w5bkADEwAaCi2M_PRaRP2bGYOxTWrto?e=031Sb1", video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQAuBhklIWv5S5YLTI-yAkNEAc6EetpnioPRyOcIpLPaj9Q?e=vrgSqI" },
+            { week: "03", sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQAsD8OVjawwTr4f-IHkS3HSAaiZUYN-vN2Sp4RpwZhXwvQ?e=Xg0NJy", video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQDoi85pVf3qSoDq1rNGpPexARXKt9OxoJ5FR6irx7HHjhc?e=gxDa7K" }
         ]
     },
     {
         title: "Öğretim İlke ve Yöntemleri",
         weeks: [
-            {
-                week: "01",
-                sunum: "https://www.canva.com/design/DAHDdPbRkKw/1KmIVMAW9cH0Csfg8kkQ3g/view?utm_content=DAHDdPbRkKw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h0fc13d7197",
-                video: ""
-            },
-            {
-                week: "02",
-                sunum: "https://www.canva.com/design/DAHDdNjJPzo/J8B0_TETW54xUfboATJfpA/view?utm_content=DAHDdNjJPzo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h7566ee0692",
-                video: ""
-            },
-            {
-                week: "03",
-                sunum: "https://www.canva.com/design/DAHDdPQofv4/h06r8I1BpOWMIF3klIdL1w/view?utm_content=DAHDdPQofv4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h7cdc47002c",
-                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQDZ6pSdnaiSQJ8GmQyHIJMSAS1RAJSv_00dtqcaQFqah4I?e=DfFMHo"
-            },
-            {
-                week: "04",
-                sunum: "https://www.canva.com/design/DAHDhzd5qMM/gI2KISNr9GABl4mhng-ITg/view?utm_content=DAHDhzd5qMM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfa039abb2f",
-                video: ""
-            },
-            {
-                week: "05",
-                sunum: "https://www.canva.com/design/DAHDiNaqUOY/77Fo9so8YBT03knnRpaJwA/view?utm_content=DAHDiNaqUOY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf454fa2327",
-                video: ""
-            },
-            {
-                week: "06",
-                sunum: "https://www.canva.com/design/DAHDiHsTmso/CWxCnp772liSrs7IphWvxA/view?utm_content=DAHDiHsTmso&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h765375e9f3",
-                video: ""
-            },
-            {
-                week: "07",
-                sunum: "https://www.canva.com/design/DAHDiNNNUD8/yyWjhUhdVnvw7mrkhteUhw/view?utm_content=DAHDiNNNUD8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9ec5dbb68f",
-                video: ""
-            },
-            {
-                week: "ÖİY-1",
-                sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQCgovaetkLoQbyMgJx4IL3uAQ9GBTb9f9vPz79qTBOeqSw?e=mrItXt",
-                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQCbXlmULGXeQqrCBTv4fzaHAbXyq5OXPPLzuB2wSD3-lbo?e=0vFepv"
-            },
-            {
-                week: "ÖİY-2",
-                sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQD8-XU_8HWXRbSHkb7qkEQ6AeBLJ047-PtSy080kUwNnEw?e=6HeJoI",
-                video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQD9QSEZ0kvbQ4uQluc_nCOJAUNBC8sxXv44UYjMHkW1Pco?e=8pSCJE"
-            },
-            {
-                week: "ÖİY-3 & 4",
-                sunum: "https://1drv.ms/p/c/22cb6c37a95edd3f/IQBdC76DnaO9RbF0ZduqaPSOAarEczsotacxvQgK7EvcwfM?e=nPDqm5",
-                video: ""
-            },
-            {
-                week: "ÖİY-5 & 6",
-                sunum: "https://1drv.ms/p/c/22cb6c37a95edd3f/IQC7wzf68lYrQrVUyJh5nqv2AbBoi-e79gsPRJBUGjIs1LU?e=7vcf0L",
-                video: ""
-            },
-          
-          
+            { week: "01", sunum: "https://www.canva.com/design/DAHDdPbRkKw/1KmIVMAW9cH0Csfg8kkQ3g/view?utm_content=DAHDdPbRkKw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h0fc13d7197", video: "" },
+            { week: "02", sunum: "https://www.canva.com/design/DAHDdNjJPzo/J8B0_TETW54xUfboATJfpA/view?utm_content=DAHDdNjJPzo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h7566ee0692", video: "" },
+            { week: "03", sunum: "https://www.canva.com/design/DAHDdPQofv4/h06r8I1BpOWMIF3klIdL1w/view?utm_content=DAHDdPQofv4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h7cdc47002c", video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQDZ6pSdnaiSQJ8GmQyHIJMSAS1RAJSv_00dtqcaQFqah4I?e=DfFMHo" },
+            { week: "04", sunum: "https://www.canva.com/design/DAHDhzd5qMM/gI2KISNr9GABl4mhng-ITg/view?utm_content=DAHDhzd5qMM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfa039abb2f", video: "" },
+            { week: "05", sunum: "https://www.canva.com/design/DAHDiNaqUOY/77Fo9so8YBT03knnRpaJwA/view?utm_content=DAHDiNaqUOY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf454fa2327", video: "" },
+            { week: "06", sunum: "https://www.canva.com/design/DAHDiHsTmso/CWxCnp772liSrs7IphWvxA/view?utm_content=DAHDiHsTmso&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h765375e9f3", video: "" },
+            { week: "07", sunum: "https://www.canva.com/design/DAHDiNNNUD8/yyWjhUhdVnvw7mrkhteUhw/view?utm_content=DAHDiNNNUD8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9ec5dbb68f", video: "" },
+            { week: "ÖİY-1", sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQCgovaetkLoQbyMgJx4IL3uAQ9GBTb9f9vPz79qTBOeqSw?e=mrItXt", video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQCbXlmULGXeQqrCBTv4fzaHAbXyq5OXPPLzuB2wSD3-lbo?e=0vFepv" },
+            { week: "ÖİY-2", sunum: "https://1drv.ms/b/c/22cb6c37a95edd3f/IQD8-XU_8HWXRbSHkb7qkEQ6AeBLJ047-PtSy080kUwNnEw?e=6HeJoI", video: "https://1drv.ms/v/c/22cb6c37a95edd3f/IQD9QSEZ0kvbQ4uQluc_nCOJAUNBC8sxXv44UYjMHkW1Pco?e=8pSCJE" },
+            { week: "ÖİY-3 & 4", sunum: "https://1drv.ms/p/c/22cb6c37a95edd3f/IQBdC76DnaO9RbF0ZduqaPSOAarEczsotacxvQgK7EvcwfM?e=nPDqm5", video: "" },
+            { week: "ÖİY-5 & 6", sunum: "https://1drv.ms/p/c/22cb6c37a95edd3f/IQC7wzf68lYrQrVUyJh5nqv2AbBoi-e79gsPRJBUGjIs1LU?e=7vcf0L", video: "" }
         ]
     }
 ];
@@ -340,13 +113,21 @@ function createCourses() {
     courses.forEach(course => {
         let weeksHTML = "";
         course.weeks.forEach(w => {
+            // DEĞİŞEN KISIM: Video ister tek metin olsun ister liste, burada butonlara dönüşüyor.
+            let videoButtons = "";
+            if (w.video) {
+                const videoList = Array.isArray(w.video) ? w.video : [w.video];
+                videoButtons = videoList.map((vid, idx) => 
+                    vid ? `<a class="btn btn-outline" href="${vid}" target="_blank">🎥 Video ${videoList.length > 1 ? idx + 1 : ""}</a>` : ""
+                ).join("");
+            }
+
             weeksHTML += `
                 <div class="week-row">
                     <div class="week-number">${w.week}. HAFTA</div>
                     <div class="button-group">
                         ${w.sunum ? `<a class="btn btn-primary" href="${w.sunum}" target="_blank">📊 Sunum</a>` : ""}
-                        ${w.video ? `<a class="btn btn-outline" href="${w.video}" target="_blank">🎥 Video</a>` : ""}
-                        ${w.icerik ? `<a class="btn btn-outline" href="${w.icerik}" target="_blank">📄 İçerik</a>` : ""}
+                        ${videoButtons}
                     </div>
                 </div>`;
         });
@@ -372,13 +153,11 @@ function toggleAccordion(element) {
     const content = element.nextElementSibling;
     const icon = element.querySelector('.status-icon');
     const isOpen = card.classList.contains('active');
-
     document.querySelectorAll('.course-card').forEach(c => {
         c.classList.remove('active');
         c.querySelector('.course-content').style.maxHeight = null;
         c.querySelector('.status-icon').textContent = '+';
     });
-
     if (!isOpen) {
         card.classList.add('active');
         content.style.maxHeight = content.scrollHeight + "px";
@@ -389,7 +168,6 @@ function toggleAccordion(element) {
 function filterCourses() {
     const val = document.getElementById('searchInput').value.toLowerCase();
     const cards = document.querySelectorAll('.course-card');
-
     cards.forEach(card => {
         const title = card.getAttribute('data-title');
         card.style.display = title.includes(val) ? "block" : "none";
@@ -398,6 +176,5 @@ function filterCourses() {
 
 createCourses();
 </script>
-
 </body>
 </html>
